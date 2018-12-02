@@ -29,6 +29,15 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     }
 
     @Test
+    fun `Assert article page title, content and status code`() {
+        println(">> Assert article page title, content and status code")
+        val entity = restTemplate.getForEntity<String>("/article/2")
+        assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(entity.body).contains("Reactor Aluminium has landed",
+                "<a href=\"https://projectreactor.io/\">https://projectreactor.io/</a>")
+    }
+
+    @Test
     fun `Assert pong comes back from ping`() {
         val entity = restTemplate.getForEntity<PongMessage>("/ping")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
