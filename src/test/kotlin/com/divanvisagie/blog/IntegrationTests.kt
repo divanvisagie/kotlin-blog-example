@@ -19,7 +19,6 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     @BeforeAll
     fun setup() {
         println(">> Setup")
-
     }
 
     @Test

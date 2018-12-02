@@ -61,3 +61,11 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+
+buildscript {
+	dependencies {
+		classpath("org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}")
+	}
+}
+apply plugin: 'kotlin-jpa'
